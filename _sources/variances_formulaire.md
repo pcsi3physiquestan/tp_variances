@@ -66,7 +66,7 @@ $$
 
 _Généralisation_ : 
 
-Si $Y = \sum__i \alpha_i X_i $ alors :
+Si $Y = \sum_i \alpha_i X_i $ alors :
 
 $$
 \sigma_Y = \sqrt{\alpha_i^2 \sigma^2_{X_i}}
