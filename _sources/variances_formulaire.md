@@ -103,6 +103,10 @@ u(Y) = \left\vert \frac{\rm{d}Y}{\rm{dX}}(x_{mes}) \right\vert u(X)
 $$
 ````
 
+```{margin}
+L'idée derrière cette dernière expression est d'approximer la fonction par sa tangente et d'obtenir la variation $\Delta Y$ obtenue pour une variation $Delta X$.
+
+```
 ## Limites
 L'avantage de la propagation des variances est la simplicité d'utilisation car il suffit d'appliquer une formule, __MAIS__ :
 
