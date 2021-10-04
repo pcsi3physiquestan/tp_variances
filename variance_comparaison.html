@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Comparaison entre Monte-Carlo et la propagation des variances &#8212; TP Mécanique et Thermodynamique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp_variances/variance_comparaison.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Présentation" href="variances_formulaire.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">TP Mécanique et Thermodynamique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tp_variances.html">
+   Propagation d’incertitudes
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="variances_formulaire.html">
+   1. Présentation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Comparaison entre Monte-Carlo et la propagation des variances
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/variance_comparaison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/variance_comparaison.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/variance_comparaison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-d-une-somme">
+   2.1. Cas d’une somme
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-d-un-produit">
+   2.2. Cas d’un produit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-d-une-combinaison">
+   2.3. Cas d’une combinaison
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-d-une-fonction">
+   2.4. Cas d’une fonction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-du-carre">
+     2.4.1. Cas du carré
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-du-cosinus">
+     2.4.2. Cas du cosinus
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="comparaison-entre-monte-carlo-et-la-propagation-des-variances">
+<h1><span class="section-number">2. </span>Comparaison entre Monte-Carlo et la propagation des variances<a class="headerlink" href="#comparaison-entre-monte-carlo-et-la-propagation-des-variances" title="Permalink to this headline">¶</a></h1>
+<p>On se propose de comparer les résultats obtenus sur des exemples pour la somme, le produit et l’utilisation d’une fonction. On rappelle qu’il ne s’agit pas d’une démonstration mais de montrer qu’on trouve bien les mêmes résultats (ou pas).</p>
+<div class="section" id="cas-d-une-somme">
+<h2><span class="section-number">2.1. </span>Cas d’une somme<a class="headerlink" href="#cas-d-une-somme" title="Permalink to this headline">¶</a></h2>
+<p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = X_1 + X_2\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>
+
+<span class="n">X1_mes</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Résultat de mesurage pour X1</span>
+<span class="n">X2_mes</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Résultat de mesurage pour X2</span>
+<span class="n">X1_u</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Incertitude-type pour X1</span>
+<span class="n">X2_u</span> <span class="o">=</span> <span class="mf">0.08</span>  <span class="c1"># Incertitude-type pour X2</span>
+<span class="n">X1_t</span> <span class="o">=</span> <span class="n">X1_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X1</span>
+<span class="n">X2_t</span> <span class="o">=</span> <span class="n">X2_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X2</span>
+
+<span class="c1"># Valeur mesurée pour Y</span>
+<span class="n">Y_mes</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">X2_mes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Résultat de mesurage : &quot;</span><span class="p">,</span> <span class="n">Y_mes</span><span class="p">)</span>
+
+<span class="c1"># Propagation des variances</span>
+<span class="n">Y_uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X1_u</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">X2_u</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par propagation des variances &quot;</span><span class="p">,</span> <span class="n">Y_uv</span><span class="p">)</span>
+
+<span class="c1"># Simulation de Monte-Carlo (cas uniforme)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">X1_sim</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X1_t</span><span class="p">,</span> <span class="n">X1_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">X2_sim</span> <span class="o">=</span> <span class="n">X2_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X2_t</span><span class="p">,</span> <span class="n">X2_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Y_sim</span> <span class="o">=</span> <span class="n">X1_sim</span> <span class="o">+</span> <span class="n">X2_sim</span>
+<span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  3
+u(Y) par propagation des variances  0.09433981132056604
+u(Y) par Monte-Carlo (cas uniforme)  0.09427238216253095
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>On peut considérer que sur ce cas, la propagation des variances donne bien un résultat correct.</em></p>
+</div>
+<div class="section" id="cas-d-un-produit">
+<h2><span class="section-number">2.2. </span>Cas d’un produit<a class="headerlink" href="#cas-d-un-produit" title="Permalink to this headline">¶</a></h2>
+<p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = X_1 \times X_2\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1_mes</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Résultat de mesurage pour X1</span>
+<span class="n">X2_mes</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Résultat de mesurage pour X2</span>
+<span class="n">X1_u</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Incertitude-type pour X1</span>
+<span class="n">X2_u</span> <span class="o">=</span> <span class="mf">0.08</span>  <span class="c1"># Incertitude-type pour X2</span>
+<span class="n">X1_t</span> <span class="o">=</span> <span class="n">X1_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X1</span>
+<span class="n">X2_t</span> <span class="o">=</span> <span class="n">X2_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X2</span>
+
+<span class="c1"># Valeur mesurée pour Y</span>
+<span class="n">Y_mes</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">*</span> <span class="n">X2_mes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Résultat de mesurage : &quot;</span><span class="p">,</span> <span class="n">Y_mes</span><span class="p">)</span>
+
+<span class="c1"># Propagation des variances</span>
+<span class="n">Y_uv</span> <span class="o">=</span> <span class="n">Y_mes</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X1_u</span> <span class="o">/</span> <span class="n">X1_mes</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">X2_u</span> <span class="o">/</span> <span class="n">X2_mes</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par propagation des variances &quot;</span><span class="p">,</span> <span class="n">Y_uv</span><span class="p">)</span>
+
+<span class="c1"># Simulation de Monte-Carlo (cas uniforme)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">X1_sim</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X1_t</span><span class="p">,</span> <span class="n">X1_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">X2_sim</span> <span class="o">=</span> <span class="n">X2_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X2_t</span><span class="p">,</span> <span class="n">X2_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Y_sim</span> <span class="o">=</span> <span class="n">X1_sim</span> <span class="o">*</span> <span class="n">X2_sim</span>
+<span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  2
+u(Y) par propagation des variances  0.12806248474865697
+u(Y) par Monte-Carlo (cas uniforme)  0.1281582028397981
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>On peut considérer que sur ce cas, la propagation des variances donne bien un résultat correct.</em></p>
+</div>
+<div class="section" id="cas-d-une-combinaison">
+<h2><span class="section-number">2.3. </span>Cas d’une combinaison<a class="headerlink" href="#cas-d-une-combinaison" title="Permalink to this headline">¶</a></h2>
+<p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = {X_1 X_2 \over X_2 + X_1}\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p>Explication sur l’expression de l’incertitude :</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a1166967-c55e-42b3-a767-c796562f56ed">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-a1166967-c55e-42b3-a767-c796562f56ed" title="Permalink to this equation">¶</a></span>\[\begin{align}
+Y &amp;= \frac{1}{{1 \over X1} + {1 \over X2}}\\
+u({1\over X1}) &amp;= {u(X1)\over X1^2}\\
+u({1\over X2}) &amp;= {u(X2)\over X2^2}\\
+u({1\over X1} + {1\over X2}) &amp;= \sqrt{u({1\over X1})^2 + u({1\over X2})^2}\\
+u(Y) &amp;= Y {u({1\over X1} + {1\over X2}) \over \frac{1}{{1 \over X1} + {1 \over X2}}}\\
+u(Y) &amp;= Y^2 \sqrt{\left ({u(X1)\over X1^2}\right )^2 + \left ({u(X2)\over X2^2}\right )^2}
+\end{align}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1_mes</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Résultat de mesurage pour X1</span>
+<span class="n">X2_mes</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Résultat de mesurage pour X2</span>
+<span class="n">X1_u</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Incertitude-type pour X1</span>
+<span class="n">X2_u</span> <span class="o">=</span> <span class="mf">0.08</span>  <span class="c1"># Incertitude-type pour X2</span>
+<span class="n">X1_t</span> <span class="o">=</span> <span class="n">X1_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X1</span>
+<span class="n">X2_t</span> <span class="o">=</span> <span class="n">X2_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X2</span>
+
+<span class="c1"># Valeur mesurée pour Y</span>
+<span class="n">Y_mes</span> <span class="o">=</span> <span class="p">(</span><span class="n">X1_mes</span> <span class="o">*</span> <span class="n">X2_mes</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">X1_mes</span> <span class="o">+</span> <span class="n">X2_mes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Résultat de mesurage : &quot;</span><span class="p">,</span> <span class="n">Y_mes</span><span class="p">)</span>
+
+<span class="c1"># Propagation des variances</span>
+<span class="n">Y_uv</span> <span class="o">=</span> <span class="n">Y_mes</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X1_u</span> <span class="o">/</span> <span class="n">X1_mes</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">X2_u</span> <span class="o">/</span> <span class="n">X2_mes</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par propagation des variances &quot;</span><span class="p">,</span> <span class="n">Y_uv</span><span class="p">)</span>
+
+<span class="c1"># Simulation de Monte-Carlo (cas uniforme)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">X1_sim</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X1_t</span><span class="p">,</span> <span class="n">X1_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">X2_sim</span> <span class="o">=</span> <span class="n">X2_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X2_t</span><span class="p">,</span> <span class="n">X2_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Y_sim</span> <span class="o">=</span> <span class="p">(</span><span class="n">X1_sim</span> <span class="o">*</span> <span class="n">X2_sim</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">X1_sim</span> <span class="o">+</span> <span class="n">X2_sim</span><span class="p">)</span>
+<span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
+
+<span class="c1">#plt.hist(prod_sim, bins=&#39;rice&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.6666666666666666
+u(Y) par propagation des variances  0.023934065809486687
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u(Y) par Monte-Carlo (cas uniforme)  0.023949212018704757
+</pre></div>
+</div>
+<img alt="_images/variance_comparaison_8_2.png" src="_images/variance_comparaison_8_2.png" />
+</div>
+</div>
+<p><em>On peut considérer que sur ce cas, la propagation des variances donne bien un résultat correct.</em></p>
+</div>
+<div class="section" id="cas-d-une-fonction">
+<h2><span class="section-number">2.4. </span>Cas d’une fonction<a class="headerlink" href="#cas-d-une-fonction" title="Permalink to this headline">¶</a></h2>
+<p>On prend une grandeur <span class="math notranslate nohighlight">\(X_1\)</span> l’incertitude-type estimée est respectivement <span class="math notranslate nohighlight">\(u_1\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = f(X_1) \)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p>On prendra deux fonctions :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) = x^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x) = \cos x\)</span></p></li>
+</ul>
+<div class="section" id="cas-du-carre">
+<h3><span class="section-number">2.4.1. </span>Cas du carré<a class="headerlink" href="#cas-du-carre" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1_mes</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Résultat de mesurage pour X1</span>
+<span class="n">X1_u</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Incertitude-type pour X1</span>
+<span class="n">X1_t</span> <span class="o">=</span> <span class="n">X1_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X1</span>
+
+<span class="c1"># Valeur mesurée pour Y</span>
+<span class="n">Y_mes</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Résultat de mesurage : &quot;</span><span class="p">,</span> <span class="n">Y_mes</span><span class="p">)</span>
+
+<span class="c1"># Propagation des variances</span>
+<span class="n">Y_uv</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X1_mes</span> <span class="o">*</span> <span class="n">X1_u</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par propagation des variances &quot;</span><span class="p">,</span> <span class="n">Y_uv</span><span class="p">)</span>
+
+<span class="c1"># Simulation de Monte-Carlo (cas uniforme)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">X1_sim</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X1_t</span><span class="p">,</span> <span class="n">X1_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Y_sim</span> <span class="o">=</span> <span class="n">X1_sim</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  1
+u(Y) par propagation des variances  0.1
+u(Y) par Monte-Carlo (cas uniforme)  0.10003598774520846
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>On peut considérer que sur ce cas, la propagation des variances donne bien un résultat correct.</em></p>
+</div>
+<div class="section" id="cas-du-cosinus">
+<h3><span class="section-number">2.4.2. </span>Cas du cosinus<a class="headerlink" href="#cas-du-cosinus" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1_mes</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Résultat de mesurage pour X1</span>
+<span class="n">X1_u</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Incertitude-type pour X1</span>
+<span class="n">X1_t</span> <span class="o">=</span> <span class="n">X1_u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Demi-largeur de la distribution uniforme pour X1</span>
+
+<span class="c1"># Valeur mesurée pour Y</span>
+<span class="n">Y_mes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X1_mes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Résultat de mesurage : &quot;</span><span class="p">,</span> <span class="n">Y_mes</span><span class="p">)</span>
+
+<span class="c1"># Propagation des variances</span>
+<span class="n">Y_uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X1_u</span><span class="p">)</span> <span class="o">*</span> <span class="n">X1_u</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par propagation des variances &quot;</span><span class="p">,</span> <span class="n">Y_uv</span><span class="p">)</span>
+
+<span class="c1"># Simulation de Monte-Carlo (cas uniforme)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">X1_sim</span> <span class="o">=</span> <span class="n">X1_mes</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">X1_t</span><span class="p">,</span> <span class="n">X1_t</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Y_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X1_sim</span><span class="p">)</span>
+<span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.9999500004166653
+u(Y) par propagation des variances  0.002498958463533917
+u(Y) par Monte-Carlo (cas uniforme)  0.0012245160795489782
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et là, on observe un grand écart. La raison est que la fonction n’est pas du tout linéaire et qu’on est proche d’un extremum : il y a un changement de pente.</p>
+<p>Comme expliqué précédemment, la relation donnée vient d’une approximatino de la fonction par sa tangente. Autour du maximum d’un cosinus, ce n’est pas valable.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On retiendra que le cas <span class="math notranslate nohighlight">\(Y = f(X)\)</span> pose souvent des problèmes (quand la fonction n’est pas linéaire). Il est souvent préférable d’utiliser Monte-Carlo dans ce cas là.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="variances_formulaire.html" title="previous page"><span class="section-number">1. </span>Présentation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
