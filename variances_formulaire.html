@@ -223,6 +223,11 @@
    1.4. Limites
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-uniforme-largeur-et-ecart-type">
+   1.5. Distribution uniforme : largeur et écart-type
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -244,7 +249,7 @@
 <p>Le carré d’un écart-type est appelé <em>variance</em> et lorsqu’on réalise une opérations entre deux variables aléatoires (ex : <span class="math notranslate nohighlight">\(X_1 + X_2\)</span>), des théorèmes mathématiques permettent, <strong>sous conditions</strong>, de relier les variances es <span class="math notranslate nohighlight">\(X_i\)</span> à la variance de <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <div class="note admonition">
 <p class="admonition-title">Exemple</p>
-<p>Dans le cas <span class="math notranslate nohighlight">\(Y = X_1 + X_2\)</span>, si les variables <span class="math notranslate nohighlight">\(X_1\)</span> et X_2$ sont indépendantes (entre autre), alors, on peut montrer que :</p>
+<p>Dans le cas <span class="math notranslate nohighlight">\(Y = X_1 + X_2\)</span>, si les variables <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> sont <strong>indépendantes</strong> (entre autre), alors, on peut montrer que :</p>
 <div class="math notranslate nohighlight">
 \[
 v_Y = v_{X_1} + v_{X_2}
@@ -332,6 +337,20 @@ u(Y) = \left\vert \frac{\rm{d}Y}{\rm{dX}}(x_{mes}) \right\vert u(X)
 <li><p>elles nécessitent des hypothèses restrictives qui ne sont pas toujours vérifiées. La méthode de Monte-Carlo demande moins d’hypothèse (dans le cadre du programme, l’indépendance des variables est suffisantes).</p></li>
 </ul>
 <p>Le cas <span class="math notranslate nohighlight">\(Y=f(X)\)</span> est notamment très souvent mis en défaut (notamment quand la dérivée s’annule au voisinage de <span class="math notranslate nohighlight">\(x_{mes}\)</span> ou en <span class="math notranslate nohighlight">\(x_{mes}\)</span>.</p>
+</div>
+<div class="section" id="distribution-uniforme-largeur-et-ecart-type">
+<h2><span class="section-number">1.5. </span>Distribution uniforme : largeur et écart-type<a class="headerlink" href="#distribution-uniforme-largeur-et-ecart-type" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Quand on utilise une distribution uniforme avec une simulation de Monte-Carlo, on travail directement avec la largeur de la distribution uniforme qui permet, grâce à Python de créer N tirages aléatoires.</p>
+<p>Quand on utilise la propagation des variances, <strong>il faut obligatoirement travailler avec des incertitudes-types, soit des grandeurs analogues à des écart-type.</strong></p>
+<p>La largeur de la distribution uniforme <em>n’est pas l’écart-type.</em> Mais on peut obtenir l’écart-type de la largeur (ou demie-largeur). Soit une distribution uniforme de largeur <span class="math notranslate nohighlight">\(2t\)</span> (et donc de demie-largeur <span class="math notranslate nohighlight">\(t\)</span>), alors on montre (calcul non donné ici) que l’écart-type de la distribution est alors :</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \frac{t}{\sqrt{3}}
+\]</div>
+<p>Lorsqu’on utilise la propagation des variances, on prendra donc soin de divisé la demie-largeur par <span class="math notranslate nohighlight">\(\sqrt{3}\)</span> lorsqu’on travaille avec des distributions uniformes (ce qui, pour rappel, est ce qu’on fait en général).</p>
+</div>
 </div>
 </div>
 
