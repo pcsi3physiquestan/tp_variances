@@ -240,7 +240,7 @@
 <div class="section" id="cas-d-une-somme">
 <h2><span class="section-number">2.1. </span>Cas d’une somme<a class="headerlink" href="#cas-d-une-somme" title="Permalink to this headline">¶</a></h2>
 <p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = X_1 + X_2\)</span>.</p>
-<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demie-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude-type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -275,7 +275,7 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  3
 u(Y) par propagation des variances  0.09433981132056604
-u(Y) par Monte-Carlo (cas uniforme)  0.0943287423344646
+u(Y) par Monte-Carlo (cas uniforme)  0.09428500434174246
 </pre></div>
 </div>
 </div>
@@ -285,7 +285,7 @@ u(Y) par Monte-Carlo (cas uniforme)  0.0943287423344646
 <div class="section" id="cas-d-un-produit">
 <h2><span class="section-number">2.2. </span>Cas d’un produit<a class="headerlink" href="#cas-d-un-produit" title="Permalink to this headline">¶</a></h2>
 <p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = X_1 \times X_2\)</span>.</p>
-<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude-type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1_mes</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Résultat de mesurage pour X1</span>
@@ -316,7 +316,7 @@ u(Y) par Monte-Carlo (cas uniforme)  0.0943287423344646
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  2
 u(Y) par propagation des variances  0.12806248474865697
-u(Y) par Monte-Carlo (cas uniforme)  0.12815348163445825
+u(Y) par Monte-Carlo (cas uniforme)  0.12816189705186315
 </pre></div>
 </div>
 </div>
@@ -326,10 +326,10 @@ u(Y) par Monte-Carlo (cas uniforme)  0.12815348163445825
 <div class="section" id="cas-d-une-combinaison">
 <h2><span class="section-number">2.3. </span>Cas d’une combinaison<a class="headerlink" href="#cas-d-une-combinaison" title="Permalink to this headline">¶</a></h2>
 <p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = {X_1 X_2 \over X_2 + X_1}\)</span>.</p>
-<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude-type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
 <p>Explication sur l’expression de l’incertitude :</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78330c98-eb64-402d-a953-16696a4bd703">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-78330c98-eb64-402d-a953-16696a4bd703" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de7dd9e9-2d9a-4553-9627-9a011e8ea5ab">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-de7dd9e9-2d9a-4553-9627-9a011e8ea5ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
 Y &amp;= \frac{1}{{1 \over X1} + {1 \over X2}}\\
 u({1\over X1}) &amp;= {u(X1)\over X1^2}\\
 u({1\over X2}) &amp;= {u(X2)\over X2^2}\\
@@ -361,22 +361,15 @@ u(Y) &amp;= Y^2 \sqrt{\left ({u(X1)\over X1^2}\right )^2 + \left ({u(X2)\over X2
 <span class="n">Y_sim</span> <span class="o">=</span> <span class="p">(</span><span class="n">X1_sim</span> <span class="o">*</span> <span class="n">X2_sim</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">X1_sim</span> <span class="o">+</span> <span class="n">X2_sim</span><span class="p">)</span>
 <span class="n">Y_um1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(Y) par Monte-Carlo (cas uniforme) &quot;</span><span class="p">,</span> <span class="n">Y_um1</span><span class="p">)</span>
-
-<span class="c1">#plt.hist(prod_sim, bins=&#39;rice&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Y_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.6666666666666666
 u(Y) par propagation des variances  0.023934065809486687
+u(Y) par Monte-Carlo (cas uniforme)  0.023956116749886836
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u(Y) par Monte-Carlo (cas uniforme)  0.023947910866089793
-</pre></div>
-</div>
-<img alt="_images/variance_comparaison_8_2.png" src="_images/variance_comparaison_8_2.png" />
 </div>
 </div>
 <p><em>On peut considérer que sur ce cas, la propagation des variances donne bien un résultat correct.</em></p>
@@ -384,7 +377,7 @@ u(Y) par propagation des variances  0.023934065809486687
 <div class="section" id="cas-d-une-fonction">
 <h2><span class="section-number">2.4. </span>Cas d’une fonction<a class="headerlink" href="#cas-d-une-fonction" title="Permalink to this headline">¶</a></h2>
 <p>On prend une grandeur <span class="math notranslate nohighlight">\(X_1\)</span> l’incertitude-type estimée est respectivement <span class="math notranslate nohighlight">\(u_1\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = f(X_1) \)</span>.</p>
-<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude_type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
+<p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude-type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
 <p>On prendra deux fonctions :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x) = x^2\)</span></p></li>
@@ -418,7 +411,7 @@ u(Y) par propagation des variances  0.023934065809486687
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  1
 u(Y) par propagation des variances  0.1
-u(Y) par Monte-Carlo (cas uniforme)  0.09996921769082069
+u(Y) par Monte-Carlo (cas uniforme)  0.10006497858686215
 </pre></div>
 </div>
 </div>
@@ -453,7 +446,7 @@ u(Y) par Monte-Carlo (cas uniforme)  0.09996921769082069
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.9999500004166653
 u(Y) par propagation des variances  0.002498958463533917
-u(Y) par Monte-Carlo (cas uniforme)  0.0012239889468676568
+u(Y) par Monte-Carlo (cas uniforme)  0.0012248434085373298
 </pre></div>
 </div>
 </div>
