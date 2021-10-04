@@ -275,7 +275,7 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  3
 u(Y) par propagation des variances  0.09433981132056604
-u(Y) par Monte-Carlo (cas uniforme)  0.09428500434174246
+u(Y) par Monte-Carlo (cas uniforme)  0.09433155262465474
 </pre></div>
 </div>
 </div>
@@ -316,7 +316,7 @@ u(Y) par Monte-Carlo (cas uniforme)  0.09428500434174246
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  2
 u(Y) par propagation des variances  0.12806248474865697
-u(Y) par Monte-Carlo (cas uniforme)  0.12816189705186315
+u(Y) par Monte-Carlo (cas uniforme)  0.1281701383188431
 </pre></div>
 </div>
 </div>
@@ -328,8 +328,8 @@ u(Y) par Monte-Carlo (cas uniforme)  0.12816189705186315
 <p>On prend deux grandeurs <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> dont les incertitudes-type estimées sont respectivement <span class="math notranslate nohighlight">\(u_1\)</span> et <span class="math notranslate nohighlight">\(u_2\)</span>. On cherche l’incertitude-type de <span class="math notranslate nohighlight">\(Y = {X_1 X_2 \over X_2 + X_1}\)</span>.</p>
 <p><strong>Attention :</strong> Pour une distribution uniforme, on travaille en général avec la demi-largeur <span class="math notranslate nohighlight">\(t\)</span> <strong>qui n’est pas l’incertitude-type de la distribution.</strong> L’incertitude-type d’une distribution uniforme est <span class="math notranslate nohighlight">\(\frac{t}{\sqrt{3}}\)</span>.</p>
 <p>Explication sur l’expression de l’incertitude :</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de7dd9e9-2d9a-4553-9627-9a011e8ea5ab">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-de7dd9e9-2d9a-4553-9627-9a011e8ea5ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6e5c5032-1111-4797-a647-2764154c53df">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-6e5c5032-1111-4797-a647-2764154c53df" title="Permalink to this equation">¶</a></span>\[\begin{align}
 Y &amp;= \frac{1}{{1 \over X1} + {1 \over X2}}\\
 u({1\over X1}) &amp;= {u(X1)\over X1^2}\\
 u({1\over X2}) &amp;= {u(X2)\over X2^2}\\
@@ -367,7 +367,9 @@ u(Y) &amp;= Y^2 \sqrt{\left ({u(X1)\over X1^2}\right )^2 + \left ({u(X2)\over X2
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.6666666666666666
 u(Y) par propagation des variances  0.023934065809486687
-u(Y) par Monte-Carlo (cas uniforme)  0.023956116749886836
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u(Y) par Monte-Carlo (cas uniforme)  0.023940313172621193
 </pre></div>
 </div>
 </div>
@@ -411,7 +413,7 @@ u(Y) par Monte-Carlo (cas uniforme)  0.023956116749886836
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  1
 u(Y) par propagation des variances  0.1
-u(Y) par Monte-Carlo (cas uniforme)  0.10006497858686215
+u(Y) par Monte-Carlo (cas uniforme)  0.09999670804528517
 </pre></div>
 </div>
 </div>
@@ -446,13 +448,13 @@ u(Y) par Monte-Carlo (cas uniforme)  0.10006497858686215
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de mesurage :  0.9999500004166653
 u(Y) par propagation des variances  0.002498958463533917
-u(Y) par Monte-Carlo (cas uniforme)  0.0012248434085373298
+u(Y) par Monte-Carlo (cas uniforme)  0.0012250072062168574
 </pre></div>
 </div>
 </div>
 </div>
 <p>Et là, on observe un grand écart. La raison est que la fonction n’est pas du tout linéaire et qu’on est proche d’un extremum : il y a un changement de pente.</p>
-<p>Comme expliqué précédemment, la relation donnée vient d’une approximatino de la fonction par sa tangente. Autour du maximum d’un cosinus, ce n’est pas valable.</p>
+<p>Comme expliqué précédemment, la relation donnée vient d’une approximation de la fonction par sa tangente. Autour du maximum d’un cosinus, ce n’est pas valable.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>On retiendra que le cas <span class="math notranslate nohighlight">\(Y = f(X)\)</span> pose souvent des problèmes (quand la fonction n’est pas linéaire). Il est souvent préférable d’utiliser Monte-Carlo dans ce cas là.</p>
